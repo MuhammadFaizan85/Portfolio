@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developer Portfolio</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+
+<style>
+  /* Gradient Background for all sections */
+  .gradient-bg {
+    background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+    color: #ffffff;
+  }
+
+  /* Navbar links style */
+  .navbar .nav-link {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    color: #ffffff !important;
+  }
+  .navbar .nav-link:hover {
+    color: #00ff99 !important;
+  }
+  .navbar .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff5f6d, #ffc371);
+    transition: width 0.3s ease;
+  }
+  .navbar .nav-link:hover::after {
+    width: 80%;
+  }
+  .navbar .nav-link.active {
+    color: #00ff99 !important;
+  }
+  .navbar .nav-link.active::after {
+    width: 80%;
+  }
+
+  .about-section img {
+    max-width: 320px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+  .about-section img:hover {
+    transform: scale(1.05);
+  }
+
+  .skill-bar {
+    height: 8px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .skill-bar div {
+    height: 100%;
+    background: #00ff99;
+  }
+
+  footer {
+    background: #0d1117;
+    color: #aaa;
+  }
+  .exp-card {
+  background: #0d1117;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.exp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border-color: #00ff99;
+}
+.section-title .line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg,#ff5f6d,#ffc371);
+}
+.section-title h2 {
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+/* Cards Styling */
+.card {
+  background: rgba(20, 20, 35, 0.9) !important;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Icon Box Left */
+.icon-box {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+}
+.code-container {
+  background: #0d1117;
+  color: #c9d1d9;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: 'Fira Code', monospace;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  white-space: pre-wrap;
+  overflow: hidden;
+}
+.blink {
+  border-right: 2px solid #79c0ff;
+  animation: blinkCursor 0.7s steps(1) infinite;
+}
+@keyframes blinkCursor {
+  50% { border-color: transparent; }
+}
+body {
+  background-color: #0f0c29; /* Dark gradient background ka base */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  padding: 20px;
+}
+
+/* Skills Section */
+.skills-section {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  padding: 60px 0;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  margin: 30px 0;
+  text-align: center;
+}
+
+/* Heading with side lines */
+.skills-section h2 {
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 50px;
+}
+
+.skills-section h2::before,
+.skills-section h2::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff5f6d, #ffc371);
+}
+
+.skills-section h2::before {
+  right: 100%;
+  margin-right: 15px;
+}
+
+.skills-section h2::after {
+  left: 100%;
+  margin-left: 15px;
+}
+
+/* Skill Card */
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Skill Icon */
+.skill-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  opacity: 0.95;
+  transition: transform 0.3s ease, opacity 0.3s ease, text-shadow 0.3s ease;
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+/* Glow Effects */
+.html .skill-icon {
+  color: #e34f26;
+  text-shadow: 0 0 10px rgba(227, 79, 38, 0.7), 0 0 20px rgba(227, 79, 38, 0.5);
+}
+
+.css .skill-icon {
+  color: #1572b6;
+  text-shadow: 0 0 10px rgba(21, 114, 182, 0.7), 0 0 20px rgba(21, 114, 182, 0.5);
+}
+
+.js .skill-icon {
+  color: #f7df1e;
+  text-shadow: 0 0 10px rgba(247, 223, 30, 0.8), 0 0 20px rgba(247, 223, 30, 0.6);
+}
+
+.bootstrap .skill-icon {
+  color: #7952b3;
+  text-shadow: 0 0 10px rgba(121, 82, 179, 0.7), 0 0 20px rgba(121, 82, 179, 0.5);
+}
+
+.php .skill-icon {
+  color: #777bb4;
+  text-shadow: 0 0 10px rgba(119, 123, 180, 0.7), 0 0 20px rgba(119, 123, 180, 0.5);
+}
+
+/* Skill Text */
+.skill-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.skill-percent {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+ * Keep global background same */
+.gradient-bg {
+  background: #0d1117;
+  color: #fff;
+  padding: 100px 0;
+  text-align: center;
+}
+/* ===== PORTFOLIO SECTION ===== */
+.portfolio-area {
+  background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+  color: #ffffff;
+}
+
+.portfolio-filter {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.portfolio-filter button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.portfolio-filter button:hover,
+.portfolio-filter button.active {
+  background: linear-gradient(90deg, #ff5f6d, #ffc371);
+  border-color: transparent;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 95, 109, 0.4);
+}
+
+.grid-item {
+  transition: all 0.4s ease;
+}
+
+.grid-item.hide {
+  display: none;
+}
+
+.tportfolio {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(13, 17, 23, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tportfolio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 255, 153, 0.2);
+  border-color: rgba(0, 255, 153, 0.3);
+}
+
+.tportfolio__img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.tportfolio__img img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.tportfolio:hover .tportfolio__img img {
+  transform: scale(1.1);
+}
+
+.tportfolio__text-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 12px;
+}
+
+.tportfolio:hover .tportfolio__text-2 {
+  opacity: 1;
+}
+
+.tportfolio-title {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.tportfolio-title a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.tportfolio-title a:hover {
+  color: #00ff99;
+}
+
+.tportfolio__text-2 h4 {
+  color: #adbac7;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+}
+
+.portfolio-plus {
+  margin-top: 15px;
+}
+
+.portfolio-plus a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 255, 153, 0.2);
+  border: 2px solid #00ff99;
+  border-radius: 50%;
+  color: #00ff99;
+  font-size: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.portfolio-plus a:hover {
+  background: #00ff99;
+  color: #000;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.popup-image {
+  display: block;
+  cursor: pointer;
+}
+
+/* small diamond flag on thumbnails (bottom-right) */
+.thumb-flag {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border-radius: 6px;
+  transform: rotate(45deg);
+  transition: transform 0.25s ease, background 0.25s ease;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.thumb-flag i { transform: rotate(-45deg); }
+.tportfolio__img { position: relative; }
+.tportfolio__img .thumb-flag:hover { background: #00ff99; color: #000; transform: rotate(45deg) scale(1.05); }
+
+@media (max-width: 991px) {
+  .portfolio-filter {
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .text-lg-end {
+    text-align: center !important;
+  }
+}
+
+.contact-section {
+  background: #0d1117;
+  color: #fff;
+}
+
+.contact-heading {
+  color: #39d353;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.contact-box {
+  background: #161b22;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #30363d;
+}
+
+.contact-note {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  color: #adbac7;
+}
+
+.form-control {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  color: #fff;
+}
+
+.form-control:focus {
+  background: #0d1117;
+  border-color: #58a6ff;
+  color: #fff;
+  box-shadow: none;
+}
+
+.send-btn {
+  background: linear-gradient(90deg, #d946ef, #4f46e5);
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.send-btn:hover {
+  opacity: 0.9;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+  color: #c9d1d9;
+}
+
+.contact-info i {
+  color: #58a6ff;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+  border-radius: 50%;
+  background: rgba(88, 166, 255, 0.1);
+  color: var(--text-main);
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-3px);
+}
+.contact-info {
+  padding: 25px;
+  background: var(--bg-section);
+  border-radius: 10px;
+  border: 1px solid var(--input-border);
+}
+
+.contact-info p {
+  font-size: 1rem;
+  margin: 15px 0;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+}
+
+.contact-info i {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(88, 166, 255, 0.1);
+  border-radius: 50%;
+}
+
+/* Social icons */
+.social-icons {
+  margin-top: 25px;
+}
+
+
+</style>
+</head>
+<body>
+  
+<!-- NAVBAR -->
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark sticky-top" style="background: #0d1117; transition: top 0.3s;">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#" style="color:#00ff99; font-size:1.5rem;">
+      Muhammad Faizan
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link text-white fw-semibold px-3" href="#about">ABOUT</a></li>
+        <li class="nav-item"><a class="nav-link text-white fw-semibold px-3" href="#experience">EXPERIENCE</a></li>
+        <li class="nav-item"><a class="nav-link text-white fw-semibold px-3" href="#skills">SKILLS</a></li>
+        <li class="nav-item"><a class="nav-link text-white fw-semibold px-3" href="#education">EDUCATION</a></li>
+        <li class="nav-item"><a class="nav-link text-white fw-semibold px-3" href="#projects">PROJECTS</a></li>
+        <li class="nav-item"><a class="nav-link text-white fw-semibold px-3" href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero d-flex align-items-center text-white gradient-bg" style="min-height:100vh;">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Left -->
+      <div class="col-md-6">
+        <h1 class="fw-bold mb-3">
+          Hello,<br>
+          This is <span style="background: linear-gradient(90deg,#ff5f6d,#ffc371); background-clip:text; -webkit-background-clip:text; color:transparent; -webkit-text-fill-color:transparent;">Muhammad Faizan</span>,<br>
+          I'm a Professional <span style="color:#00ff99;">Software Developer.</span>
+        </h1>
+        <p class="mb-4">Building scalable web apps with modern technologies.</p>
+        <div class="mb-4">
+          <a href="https://github.com/MuhammadFaizan85" target="_blank" class="text-white me-3 fs-4"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/faizan-arshad-807720180" target="_blank" class="text-white me-3 fs-4"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/faizanarshad97" target="_blank" class="text-white me-3 fs-4"><i class="fab fa-instagram"></i></a>
+          <a href="https://twitter.com/" target="_blank" class="text-white me-3 fs-4"><i class="fab fa-twitter"></i></a>
+        </div>
+        <a href="#contact" class="btn btn-outline-light btn-lg me-3">CONTACT ME</a>
+        <a href="muhammad faizan.cv (1).pdf (1) (1).pdf" class="btn btn-lg" style="background: linear-gradient(90deg,#a770ef,#cf8bf3,#fdb99b); color:white;">GET RESUME</a>
+      </div>
+
+      <!-- Right -->
+      <div class="col-md-6">
+        <div class="code-box shadow-lg rounded" style="background:#0d1117; border-radius:12px; padding:1.5rem; font-family:monospace;">
+          <div class="d-flex mb-3">
+            <span style="width:12px;height:12px;background:#ff5f56;border-radius:50%;margin-right:6px;"></span>
+            <span style="width:12px;height:12px;background:#ffbd2e;border-radius:50%;margin-right:6px;"></span>
+            <span style="width:12px;height:12px;background:#27c93f;border-radius:50%;"></span>
+          </div>
+<pre style="color:#c9d1d9; font-size:14px; margin:0;">
+<span style="color:#79c0ff;">const</span> coder = {
+  <span style="color:#ff7b72;">name</span>: <span style="color:#a5d6ff;">'Muhammad Faizan'</span>,
+  <span style="color:#ff7b72;">skills</span>: [<span style="color:#a5d6ff;">'React'</span>, <span style="color:#a5d6ff;">'NextJS'</span>, <span style="color:#a5d6ff;">'MongoDB'</span>, <span style="color:#a5d6ff;">'AWS'</span>],
+  <span style="color:#ff7b72;">hardWorker</span>: <span style="color:#d2a8ff;">true</span>,
+  <span style="color:#ff7b72;">quickLearner</span>: <span style="color:#d2a8ff;">true</span>,
+  <span style="color:#ff7b72;">problemSolver</span>: <span style="color:#d2a8ff;">true</span>,
+  <span style="color:#ff7b72;">hireable</span>: <span style="color:#79c0ff;">function</span>() {
+    <span style="color:#79c0ff;">return</span> (
+      this.hardWorker &&
+      this.problemSolver &&
+      this.skills.length >= 5
+    );
+  }
+};
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="py-5 gradient-bg about-section">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Left Side (Text) -->
+      <div class="col-lg-7 mb-4 mb-lg-0">
+        <h5 class="text-success fw-bold">WHO I AM?</h5>
+        <p>
+          My name is <span class="fw-bold text-uppercase">Muhammad Faizan</span>.  
+          I am a professional and enthusiastic programmer in my daily life.  
+          I love to learn and explore new technologies and am passionate about problem-solving.  
+          I enjoy working on full-stack web development and love to make the web more open to the world.
+        </p>
+        <p>
+          My core skill is PHPp and I love to do most of the things using it.  
+          I am available for any kind of job opportunity that suits my skills and interests.
+        </p>
+      </div>
+
+      <!-- Right Side (Image + Vertical Text on right) -->
+      <div class="col-lg-5 d-flex align-items-center justify-content-center">
+        <!-- Image -->
+        <div class="position-relative d-flex align-items-center">
+          <img src="WhatsApp Image 2025-11-06 at 3.18.10 AM (1).jpeg" alt="Muhammad Faizan" class="img-fluid rounded shadow-lg">
+          
+          <!-- Vertical Text + Line -->
+          <div class="ms-3 d-none d-md-flex flex-column align-items-center">
+            <h3 style="writing-mode: vertical-rl; transform: rotate(0deg); color:#00ff99; font-weight:bold; letter-spacing:3px;">
+              ABOUT ME
+            </h3>
+            <div style="width:2px; height:100px; background:#00ff99; margin-top:10px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- EXPERIENCE -->
+<section id="experience" class="py-5 gradient-bg text-white">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5">Experience</h2>
+    <div class="row g-4">
+      
+      <!-- Card 1 -->
+      <div class="col-md-6">
+        <div class="exp-card p-4 h-100">
+          <h5 class="fw-bold">PHP web development — BIXISOFT </h5>
+          <small class="text-warning">SEPT 2025 — Present</small>
+          <p class="mt-3">Worked on responsive UI, component library, and performance optimization for customer-facing Web.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-6">
+        <div class="exp-card p-4 h-100">
+          <h5 class="fw-bold">COMPUTER COURSE</h5>
+          <small class="text-warning">Jun 2021 — Dec 2022</small>
+          <p class="mt-3">Built internal tools and APIs, and migrated legacy views to modern components.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+ <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2>Skills</h2>
+                <div class="row mt-4 g-4">
+                    <!-- HTML & CSS -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="skill-card html">
+                            <div class="skill-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <div class="skill-name">HTML & CSS</div>
+                            <div class="skill-percent">90%</div>
+                        </div>
+                    </div>
+                    
+                    <!-- JavaScript -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="skill-card js">
+                            <div class="skill-icon">
+                                <i class="fab fa-js-square"></i>
+                            </div>
+                            <div class="skill-name">JavaScript</div>
+                            <div class="skill-percent">80%</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bootstrap -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="skill-card bootstrap">
+                            <div class="skill-icon">
+                                <i class="fab fa-bootstrap"></i>
+                            </div>
+                            <div class="skill-name">Bootstrap</div>
+                            <div class="skill-percent">85%</div>
+                        </div>
+                    </div>
+                    
+                    <!-- PHP -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="skill-card php">
+                            <div class="skill-icon">
+                                <i class="fab fa-php"></i>
+                            </div>
+                            <div class="skill-name">PHP</div>
+                            <div class="skill-percent">75%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     <!-- START PORTFOLIO DESIGN AREA -->
+        <section id="projects" class="portfolio-area pt-120 pb-50">
+            <div class="container">
+                <div class="row mb-40 d-none">
+                    <div class="col-12">
+                        <div class="sec-wrapper text-center">
+                            <h5>Featured Project</h5>
+                            <h2 class="section-title">Explore Our Project.</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center mb-4">
+                  <div class="col-12 text-center mb-3">
+                    <div class="sec-wrapper text-center">
+                      <h5>Featured Project</h5>
+                      <h2 class="section-title">Explore Our Project.</h2>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="portfolio-filter" role="tablist" aria-label="Portfolio categories">
+                      <button class="active" data-filter="all">All</button>
+                      <button data-filter="website">Websites</button>
+                      <button data-filter="app">Apps</button>
+                      <button data-filter="wordpress">Wordpress</button>
+                    </div>
+                  </div>
+                </div>
+                <div id="portfolio-grid" class="row row-portfolio">
+                  <div class="col-lg-4 col-md-6 col-sm-6 grid-item" data-category="app">
+                    <div class="tportfolio mb-30">
+                      <div class="tportfolio__img">
+                        <a class="popup-image" href="web (2).png" data-fancybox="gallery">
+                          <img src="web (2).png" alt="App and Website Portfolio" />
+                        </a>
+                        <span class="thumb-flag"><i class="fa fa-plus"></i></span>
+                        <div class="tportfolio__text tportfolio__text-2">
+                          <h3 class="tportfolio-title"><a href="https://islamicash.com/" target="_blank">islami Cash</a></h3>
+                          <h4>App site</h4>
+                          <div class="portfolio-plus">
+                            <a href="https://islamicash.com/" target="_blank">
+                              <i class="fal fa-plus"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                 
+
+                  <div class="col-lg-4 col-md-6 col-sm-6 grid-item" data-category="website">
+                    <div class="tportfolio mb-30">
+                      <div class="tportfolio__img">
+                        <a class="popup-image" href="web6.png" data-fancybox="gallery">
+                          <img src="web6.png" alt="App and Website Portfolio" />
+                        </a>
+                        <span class="thumb-flag"><i class="fa fa-plus"></i></span>
+                        <div class="tportfolio__text tportfolio__text-2">
+                          <h3 class="tportfolio-title"><a href="https://www.brownbag.pk/" target="_blank">BrownBag Store</a></h3>
+                          <h4>shoppping site</h4>
+                          <div class="portfolio-plus">
+                            <a href="https://www.brownbag.pk/" target="_blank">
+                              <i class="fal fa-plus"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 col-sm-6 grid-item" data-category="wordpress">
+                    <div class="tportfolio mb-30">
+                      <div class="tportfolio__img">
+                        <a class="popup-image" href="web7 (2).png" data-fancybox="gallery">
+                          <img src="web7 (2).png" alt="App and Website Portfolio" />
+                        </a>
+                        <span class="thumb-flag"><i class="fa fa-plus"></i></span>
+                        <div class="tportfolio__text tportfolio__text-2">
+                          <h3 class="tportfolio-title"><a href="https://certifyme.pk/" target="_blank">Wordpress</a></h3>
+                          <h4>Properties Website</h4>
+                          <div class="portfolio-plus">
+                            <a href="https://faizan.debtdev.com/wordpress2/" target="_blank">
+                              <i class="fal fa-plus"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 col-sm-6 grid-item" data-category="website">
+                    <div class="tportfolio mb-30">
+                      <div class="tportfolio__img">
+                        <a class="popup-image" href="web1 (2).png" data-fancybox="gallery">
+                          <img src="web1 (2).png" alt="App and Website Portfolio" />
+                        </a>
+                        <span class="thumb-flag"><i class="fa fa-plus"></i></span>
+                        <div class="tportfolio__text tportfolio__text-2">
+                          <h3 class="tportfolio-title"><a href="https://muhammadfaizantech.netlify.app/" target="_blank">Portfolio</a></h3>
+                          <h4>Portfolio site</h4>
+                          <div class="portfolio-plus">
+                            <a href="https://muhammadfaizantech.netlify.app/" target="_blank">
+                              <i class="fal fa-plus"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 col-sm-6 grid-item" data-category="website">
+                    <div class="tportfolio mb-30">
+                      <div class="tportfolio__img">
+                        <a class="popup-image" href="web5.png" data-fancybox="gallery">
+                          <img src="web5.png" alt="App and Website Portfolio" />
+                        </a>
+                        <span class="thumb-flag"><i class="fa fa-plus"></i></span>
+                        <div class="tportfolio__text tportfolio__text-2">
+                          <h3 class="tportfolio-title"><a href="https://certifyme.pk/" target="_blank">website</a></h3>
+                          <h4>Courses Website</h4>
+                          <div class="portfolio-plus">
+                            <a href="https://certifyme.pk/" target="_blank">
+                              <i class="fal fa-plus"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 col-sm-6 grid-item" data-category="app">
+                    <div class="tportfolio mb-30">
+                      <div class="tportfolio__img">
+                        <a class="popup-image" href="web4 (2).png" data-fancybox="gallery">
+                          <img src="web4 (2).png" alt="App and Website Portfolio" />
+                        </a>
+                        <span class="thumb-flag"><i class="fa fa-plus"></i></span>
+                        <div class="tportfolio__text tportfolio__text-2">
+                          <h3 class="tportfolio-title"><a href="https://bixicash.com/" target="_blank">Bixi Cash</a></h3>
+                          <h4>app site</h4>
+                          <div class="portfolio-plus">
+                            <a href="https://bixicash.com/" target="_blank">
+                              <i class="fal fa-plus"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- New app portfolio item -->
+                  <div class="col-lg-4 col-md-6 col-sm-6 grid-item" data-category="app">
+                    <div class="tportfolio mb-30">
+                      <div class="tportfolio__img">
+                        <a class="popup-image" href="app.png" data-fancybox="gallery">
+                          <img src="app.png" alt="App Screenshot" />
+                        </a>
+                        <span class="thumb-flag"><i class="fa fa-plus"></i></span>
+                        <div class="tportfolio__text tportfolio__text-2">
+                          <h3 class="tportfolio-title"><a href="#" target="_blank">Mobile App</a></h3>
+                          <h4>App project</h4>
+                          <div class="portfolio-plus">
+                            <a href="#" target="_blank">
+                              <i class="fal fa-plus"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+<!-- EDUCATION -->
+<section id="education" class="py-5 gradient-bg">
+  <div class="container">
+
+    <!-- Heading with lines -->
+    <div class="section-title d-flex align-items-center justify-content-center mb-5">
+      <div class="line"></div>
+      <h2 class="px-3">Education</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="row align-items-center">
+      <!-- Left Side Image -->
+      <div class="col-lg-5 text-center mb-4 mb-lg-0">
+        <img src="Wavy_Edu-01_Single-04-Photoroom.png" alt="Education" class="img-fluid" style="max-width: 400px;">
+      </div>
+
+      <!-- Right Side Cards -->
+      <div class="col-lg-7">
+
+        <!-- Card 1 -->
+        <div class="card bg-dark text-light mb-3 p-3 shadow rounded-3">
+          <div class="d-flex align-items-center">
+            <div class="icon-box me-3">
+              <i class="fas fa-user-graduate fa-lg text-success"></i>
+            </div>
+            <div>
+              <small class="text-success">2022 - 2026</small>
+              <h5 class="fw-bold mb-1">B.Sc. Computer Science</h5>
+              <p class="mb-0">NFC IET MULTAN</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card bg-dark text-light mb-3 p-3 shadow rounded-3">
+          <div class="d-flex align-items-center">
+            <div class="icon-box me-3">
+              <i class="fas fa-university fa-lg text-primary"></i>
+            </div>
+            <div>
+              <small class="text-success">2020 - 2022</small>
+              <h5 class="fw-bold mb-1">FSC Pre Engineering</h5>
+              <p class="mb-0">Govt Graduate College CCW</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card bg-dark text-light mb-3 p-3 shadow rounded-3">
+          <div class="d-flex align-items-center">
+            <div class="icon-box me-3">
+              <i class="fas fa-school fa-lg text-warning"></i>
+            </div>
+            <div>
+              <small class="text-success">2018 - 2020</small>
+              <h5 class="fw-bold mb-1">Matriculation (Science)</h5>
+              <p class="mb-0">Govt M.C Middle High School</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- CONTACT -->
+     
+    <section id="contact" class="py-5 gradient-bg">
+        <div class="container">
+            <h2 class="contact-heading">CONTACT WITH ME</h2>
+
+            <div class="row g-4 align-items-stretch">
+                <!-- Left: Form -->
+                <div class="col-md-6 d-flex">
+                    <div class="contact-box flex-fill">
+                        <p class="contact-note">
+                            If you have any questions or concerns, please don't hesitate to contact me.
+                            I am open to any work opportunities that align with my skills and interests.
+                        </p>
+                        <form id="contactForm" class="mt-3">
+                            <div class="mb-3">
+                                <input class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button class="send-btn" type="submit">
+                                SEND MESSAGE <i class="fas fa-paper-plane ms-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right: Info & Social -->
+                <div class="col-md-6 d-flex">
+                    <div class="contact-info flex-fill">
+                        <p>
+                            <i class="fas fa-envelope"></i> 
+                            <span>arshadfaizan314@gmail.com</span>
+                        </p>
+                        <p>
+                            <i class="fas fa-phone"></i> 
+                            <span>03097090075</span>
+                        </p>
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i> 
+                            <span>
+                                MUMTAZABAD RAILWAY CROSSING<br>
+                                SAEEDI HOUSE MULTAN
+                            </span>
+                        </p>
+
+                        <div class="social-icons">
+                            <a href="https://github.com/MuhammadFaizan85" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/faizan-arshad-807720180" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.instagram.com/faizanarshad97" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- FOOTER -->
+<footer class="py-4 text-center">
+  <small>&copy; <span id="year"></span> Muhammad Faizan — Built with Bootstrap</small>
+</footer>
+<!-- FontAwesome (for icons) -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script>
+
+  
+let prevScrollPos = window.pageYOffset;
+const navbar = document.getElementById("mainNavbar");
+window.onscroll = function() {
+  let currentScrollPos = window.pageYOffset;
+  if (prevScrollPos < currentScrollPos) {
+    navbar.style.top = "-80px";
+  } else {
+    navbar.style.top = "0";
+  }
+  prevScrollPos = currentScrollPos;
+}
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Portfolio Filter Functionality (uses data-filter and data-category)
+const filterButtons = document.querySelectorAll('.portfolio-filter button');
+const portfolioItems = document.querySelectorAll('.grid-item');
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach(b => b.classList.remove('active'));
+    button.classList.add('active');
+
+    const filter = button.getAttribute('data-filter');
+
+    portfolioItems.forEach(item => {
+      const cat = item.getAttribute('data-category') || '';
+      const show = (filter === 'all') || (cat === filter);
+      if (show) {
+        item.classList.remove('hide');
+        item.style.display = '';
+        item.style.opacity = '0';
+        setTimeout(() => {
+          item.style.transition = 'opacity 0.3s ease';
+          item.style.opacity = '1';
+        }, 10);
+      } else {
+        item.style.transition = '';
+        item.style.opacity = '';
+        item.classList.add('hide');
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Initialize Fancybox for popup images
+Fancybox.bind("[data-fancybox]", {
+  // Options can be added here
+});
+
+</script>
+</body>
+</html>
